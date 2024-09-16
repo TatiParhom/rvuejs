@@ -1,15 +1,23 @@
 <template>
-    <h2>главная страница</h2>
+    <ul>
+        <CardPostView />
+    </ul>
 </template>
 
+<style scoped>
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+</style>
 
 <script setup>
-    // import { ref } from "vue"
-    fetch('https://dummyjson.com/posts')
-    .then(res => res.json())
-    .then(res => 
-        posts.value = res.posts
-        
-    )
+    import { onMounted } from 'vue';
+    import CardPostView from './CardPostView.vue';
 
+
+    onMounted(() => {
+        console.log(posts)
+    })
 </script>
